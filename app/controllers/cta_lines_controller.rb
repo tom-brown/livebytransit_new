@@ -1,6 +1,7 @@
 class CtaLinesController < ApplicationController
   def index
-    @cta_lines = CtaLine.page(params[:page]).per(10)
+    @q = CtaLine.ransack(params[:q])
+    @cta_lines = @q.result(:distinct => true).includes(:cta_assigns, :cta_stations).page(params[:page]).per(10)
 
     render("cta_lines/index.html.erb")
   end

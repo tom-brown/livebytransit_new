@@ -1,6 +1,7 @@
 class ShowingsController < ApplicationController
   def index
-    @showings = Showing.page(params[:page]).per(10)
+    @q = Showing.ransack(params[:q])
+    @showings = @q.result(:distinct => true).includes(:listing, :user).page(params[:page]).per(10)
 
     render("showings/index.html.erb")
   end

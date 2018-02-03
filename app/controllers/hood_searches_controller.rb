@@ -1,6 +1,7 @@
 class HoodSearchesController < ApplicationController
   def index
-    @hood_searches = HoodSearch.page(params[:page]).per(10)
+    @q = HoodSearch.ransack(params[:q])
+    @hood_searches = @q.result(:distinct => true).includes(:search, :neighborhood).page(params[:page]).per(10)
 
     render("hood_searches/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class NeighborhoodsController < ApplicationController
   def index
-    @neighborhoods = Neighborhood.page(params[:page]).per(10)
+    @q = Neighborhood.ransack(params[:q])
+    @neighborhoods = @q.result(:distinct => true).includes(:city, :hood_searches, :listings, :hood_points, :searches).page(params[:page]).per(10)
 
     render("neighborhoods/index.html.erb")
   end

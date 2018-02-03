@@ -1,6 +1,7 @@
 class HoodPointsController < ApplicationController
   def index
-    @hood_points = HoodPoint.page(params[:page]).per(10)
+    @q = HoodPoint.ransack(params[:q])
+    @hood_points = @q.result(:distinct => true).includes(:neighborhood).page(params[:page]).per(10)
 
     render("hood_points/index.html.erb")
   end

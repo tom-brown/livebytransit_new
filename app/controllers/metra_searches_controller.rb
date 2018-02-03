@@ -1,6 +1,7 @@
 class MetraSearchesController < ApplicationController
   def index
-    @metra_searches = MetraSearch.page(params[:page]).per(10)
+    @q = MetraSearch.ransack(params[:q])
+    @metra_searches = @q.result(:distinct => true).includes(:search, :metra_station).page(params[:page]).per(10)
 
     render("metra_searches/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class CtaSearchesController < ApplicationController
   def index
-    @cta_searches = CtaSearch.page(params[:page]).per(10)
+    @q = CtaSearch.ransack(params[:q])
+    @cta_searches = @q.result(:distinct => true).includes(:search, :cta_station).page(params[:page]).per(10)
 
     render("cta_searches/index.html.erb")
   end

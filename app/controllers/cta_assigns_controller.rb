@@ -1,6 +1,7 @@
 class CtaAssignsController < ApplicationController
   def index
-    @cta_assigns = CtaAssign.page(params[:page]).per(10)
+    @q = CtaAssign.ransack(params[:q])
+    @cta_assigns = @q.result(:distinct => true).includes(:cta_line, :cta_station).page(params[:page]).per(10)
 
     render("cta_assigns/index.html.erb")
   end

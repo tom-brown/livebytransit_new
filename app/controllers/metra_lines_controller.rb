@@ -1,6 +1,7 @@
 class MetraLinesController < ApplicationController
   def index
-    @metra_lines = MetraLine.page(params[:page]).per(10)
+    @q = MetraLine.ransack(params[:q])
+    @metra_lines = @q.result(:distinct => true).includes(:metra_assigns, :metra_stations).page(params[:page]).per(10)
 
     render("metra_lines/index.html.erb")
   end
