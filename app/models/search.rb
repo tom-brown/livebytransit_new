@@ -1,6 +1,9 @@
 class Search < ApplicationRecord
   # Direct associations
 
+  has_many   :listings_searches,
+             :dependent => :destroy
+
   has_many   :city_searches,
              :dependent => :destroy
 
