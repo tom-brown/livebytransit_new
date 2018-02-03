@@ -24,7 +24,7 @@
           Metra line
         </label>
 
-        <input type="text" id="metra_line_id" name="metra_line_id" placeholder="Metra line" class="form-control" value="<%= @metra_assign.metra_line_id %>">
+        <%= select_tag(:metra_line_id, options_from_collection_for_select(MetraLine.all, :id, :created_at, @metra_assign.metra_line_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for metra_station_id -->
