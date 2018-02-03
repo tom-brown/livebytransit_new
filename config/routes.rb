@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Cta_search resource:
+  # CREATE
+  get "/cta_searches/new", :controller => "cta_searches", :action => "new"
+  post "/create_cta_search", :controller => "cta_searches", :action => "create"
+
+  # READ
+  get "/cta_searches", :controller => "cta_searches", :action => "index"
+  get "/cta_searches/:id", :controller => "cta_searches", :action => "show"
+
+  # UPDATE
+  get "/cta_searches/:id/edit", :controller => "cta_searches", :action => "edit"
+  post "/update_cta_search/:id", :controller => "cta_searches", :action => "update"
+
+  # DELETE
+  get "/delete_cta_search/:id", :controller => "cta_searches", :action => "destroy"
+  #------------------------------
+
   # Routes for the Cta_assign resource:
   # CREATE
   get "/cta_assigns/new", :controller => "cta_assigns", :action => "new"

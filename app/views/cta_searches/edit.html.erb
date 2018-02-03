@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @cta_search.errors.any? %>
+  <% @cta_search.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Cta Search #<%= @cta_search.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_cta_search/<%= @cta_search.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for search_id -->
+      <div class="form-group">
+        <label for="search_id" class="control-label">
+          Search
+        </label>
+
+        <input type="text" id="search_id" name="search_id" placeholder="Search" class="form-control" value="<%= @cta_search.search_id %>">
+      </div>
+
+      <!-- Label and input for cta_station_id -->
+      <div class="form-group">
+        <label for="cta_station_id" class="control-label">
+          Cta station
+        </label>
+
+        <input type="text" id="cta_station_id" name="cta_station_id" placeholder="Cta station" class="form-control" value="<%= @cta_search.cta_station_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Cta Search
+      </button>
+      or
+      <a href="/cta_searches/<%= @cta_search.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
