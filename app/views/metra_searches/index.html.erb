@@ -16,7 +16,7 @@
 
       <% @metra_searches.each do |metra_search| %>
       <tr>
-        <td><%= metra_search.search_id %></td>
+        <td><%= metra_search.search.user_id %></td>
         <td><%= metra_search.metra_station_id %></td>
         <td>
           <a href="/metra_searches/<%= metra_search.id %>" class="btn btn-primary">Show</a>
