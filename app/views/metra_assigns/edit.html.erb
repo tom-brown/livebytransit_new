@@ -33,7 +33,7 @@
           Metra station
         </label>
 
-        <input type="text" id="metra_station_id" name="metra_station_id" placeholder="Metra station" class="form-control" value="<%= @metra_assign.metra_station_id %>">
+        <%= select_tag(:metra_station_id, options_from_collection_for_select(MetraStation.all, :id, :lat, @metra_assign.metra_station_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
