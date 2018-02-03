@@ -16,7 +16,7 @@
 
       <% @metra_assigns.each do |metra_assign| %>
       <tr>
-        <td><%= metra_assign.metra_line_id %></td>
+        <td><%= metra_assign.metra_line.created_at %></td>
         <td><%= metra_assign.metra_station_id %></td>
         <td>
           <a href="/metra_assigns/<%= metra_assign.id %>" class="btn btn-primary">Show</a>
