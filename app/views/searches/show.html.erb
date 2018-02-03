@@ -1,0 +1,73 @@
+<div class="page-header">
+  <h3>Search #<%= @search.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @search.user_id %></dd>
+
+      <dt>Property type</dt>
+      <dd><%= @search.property_type %></dd>
+
+      <dt>Beds</dt>
+      <dd><%= @search.beds %></dd>
+
+      <dt>Baths</dt>
+      <dd><%= @search.baths %></dd>
+
+      <dt>Max price</dt>
+      <dd><%= @search.max_price %></dd>
+
+      <dt>Rental</dt>
+      <dd><%= @search.rental %></dd>
+
+      <dt>Cats</dt>
+      <dd><%= @search.cats %></dd>
+
+      <dt>Dogs</dt>
+      <dd><%= @search.dogs %></dd>
+
+      <dt>Cta distance</dt>
+      <dd><%= @search.cta_distance %></dd>
+
+      <dt>Metra distance</dt>
+      <dd><%= @search.metra_distance %></dd>
+
+      <dt>Parking</dt>
+      <dd><%= @search.parking %></dd>
+
+      <dt>Laundry</dt>
+      <dd><%= @search.laundry %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @search.name %></dd>
+
+      <dt>Min price</dt>
+      <dd><%= @search.min_price %></dd>
+
+      <dt>Old mlsids</dt>
+      <dd><%= @search.old_mlsids %></dd>
+
+      <dt>Current mlsids</dt>
+      <dd><%= @search.current_mlsids %></dd>
+
+      <dt>New mlsids</dt>
+      <dd><%= @search.new_mlsids %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/searches" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/searches/<%= @search.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_search/<%= @search.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

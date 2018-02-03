@@ -1,0 +1,60 @@
+<div class="page-header">
+  <h1>
+    Searches
+    <a href="/searches/new" class="btn btn-lg btn-success">New Search</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Property type</th>
+        <th>Beds</th>
+        <th>Baths</th>
+        <th>Max price</th>
+        <th>Rental</th>
+        <th>Cats</th>
+        <th>Dogs</th>
+        <th>Cta distance</th>
+        <th>Metra distance</th>
+        <th>Parking</th>
+        <th>Laundry</th>
+        <th>Name</th>
+        <th>Min price</th>
+        <th>Old mlsids</th>
+        <th>Current mlsids</th>
+        <th>New mlsids</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @searches.each do |search| %>
+      <tr>
+        <td><%= search.user_id %></td>
+        <td><%= search.property_type %></td>
+        <td><%= search.beds %></td>
+        <td><%= search.baths %></td>
+        <td><%= search.max_price %></td>
+        <td><%= search.rental %></td>
+        <td><%= search.cats %></td>
+        <td><%= search.dogs %></td>
+        <td><%= search.cta_distance %></td>
+        <td><%= search.metra_distance %></td>
+        <td><%= search.parking %></td>
+        <td><%= search.laundry %></td>
+        <td><%= search.name %></td>
+        <td><%= search.min_price %></td>
+        <td><%= search.old_mlsids %></td>
+        <td><%= search.current_mlsids %></td>
+        <td><%= search.new_mlsids %></td>
+        <td>
+          <a href="/searches/<%= search.id %>" class="btn btn-primary">Show</a>
+          <a href="/searches/<%= search.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_search/<%= search.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
