@@ -9,6 +9,10 @@ class MetraStation < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :searches,
+             :through => :metra_searches,
+             :source => :search
+
   # Validations
 
 end

@@ -20,6 +20,10 @@ class Search < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :metra_stations,
+             :through => :metra_searches,
+             :source => :metra_station
+
   has_many   :cta_stations,
              :through => :cta_searches,
              :source => :cta_station
