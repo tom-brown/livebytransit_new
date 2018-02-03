@@ -24,7 +24,7 @@
           Search
         </label>
 
-        <input type="text" id="search_id" name="search_id" placeholder="Search" class="form-control" value="<%= @cta_search.search_id %>">
+        <%= select_tag(:search_id, options_from_collection_for_select(Search.all, :id, :user_id, @cta_search.search_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for cta_station_id -->
