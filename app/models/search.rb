@@ -1,6 +1,9 @@
 class Search < ApplicationRecord
   # Direct associations
 
+  has_many   :metra_searches,
+             :dependent => :destroy
+
   has_many   :cta_searches,
              :dependent => :destroy
 
