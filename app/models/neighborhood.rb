@@ -1,6 +1,9 @@
 class Neighborhood < ApplicationRecord
   # Direct associations
 
+  has_many   :hood_points,
+             :dependent => :destroy
+
   has_many   :listings,
              :dependent => :nullify
 
