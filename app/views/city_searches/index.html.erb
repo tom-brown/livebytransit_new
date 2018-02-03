@@ -16,7 +16,7 @@
 
       <% @city_searches.each do |city_search| %>
       <tr>
-        <td><%= city_search.search_id %></td>
+        <td><%= city_search.search.user_id %></td>
         <td><%= city_search.city_id %></td>
         <td>
           <a href="/city_searches/<%= city_search.id %>" class="btn btn-primary">Show</a>
