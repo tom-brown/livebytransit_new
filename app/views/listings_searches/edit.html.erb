@@ -24,7 +24,7 @@
           Listing
         </label>
 
-        <input type="text" id="listing_id" name="listing_id" placeholder="Listing" class="form-control" value="<%= @listings_search.listing_id %>">
+        <%= select_tag(:listing_id, options_from_collection_for_select(Listing.all, :id, :address, @listings_search.listing_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for search_id -->
