@@ -9,6 +9,10 @@ class CtaStation < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :searches,
+             :through => :cta_searches,
+             :source => :search
+
   # Validations
 
 end
