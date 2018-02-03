@@ -6,6 +6,10 @@ class CtaLine < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :cta_stations,
+             :through => :cta_assigns,
+             :source => :cta_station
+
   # Validations
 
 end
