@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Showing resource:
+  # CREATE
+  get "/showings/new", :controller => "showings", :action => "new"
+  post "/create_showing", :controller => "showings", :action => "create"
+
+  # READ
+  get "/showings", :controller => "showings", :action => "index"
+  get "/showings/:id", :controller => "showings", :action => "show"
+
+  # UPDATE
+  get "/showings/:id/edit", :controller => "showings", :action => "edit"
+  post "/update_showing/:id", :controller => "showings", :action => "update"
+
+  # DELETE
+  get "/delete_showing/:id", :controller => "showings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Contact resource:
   # CREATE
   get "/contacts/new", :controller => "contacts", :action => "new"
