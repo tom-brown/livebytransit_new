@@ -1,6 +1,6 @@
 class CtaStationsController < ApplicationController
   def index
-    @cta_stations = CtaStation.all
+    @cta_stations = CtaStation.page(params[:page]).per(10)
 
     render("cta_stations/index.html.erb")
   end

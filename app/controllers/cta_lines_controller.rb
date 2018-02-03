@@ -1,6 +1,6 @@
 class CtaLinesController < ApplicationController
   def index
-    @cta_lines = CtaLine.all
+    @cta_lines = CtaLine.page(params[:page]).per(10)
 
     render("cta_lines/index.html.erb")
   end

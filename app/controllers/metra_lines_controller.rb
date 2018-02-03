@@ -1,6 +1,6 @@
 class MetraLinesController < ApplicationController
   def index
-    @metra_lines = MetraLine.all
+    @metra_lines = MetraLine.page(params[:page]).per(10)
 
     render("metra_lines/index.html.erb")
   end

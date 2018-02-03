@@ -1,6 +1,6 @@
 class HoodSearchesController < ApplicationController
   def index
-    @hood_searches = HoodSearch.all
+    @hood_searches = HoodSearch.page(params[:page]).per(10)
 
     render("hood_searches/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class ListingsSearchesController < ApplicationController
   def index
-    @listings_searches = ListingsSearch.all
+    @listings_searches = ListingsSearch.page(params[:page]).per(10)
 
     render("listings_searches/index.html.erb")
   end

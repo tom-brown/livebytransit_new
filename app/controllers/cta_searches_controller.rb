@@ -1,6 +1,6 @@
 class CtaSearchesController < ApplicationController
   def index
-    @cta_searches = CtaSearch.all
+    @cta_searches = CtaSearch.page(params[:page]).per(10)
 
     render("cta_searches/index.html.erb")
   end

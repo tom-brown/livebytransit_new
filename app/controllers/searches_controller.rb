@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
   end
 
   def index
-    @searches = Search.all
+    @searches = Search.page(params[:page]).per(10)
 
     render("searches/index.html.erb")
   end

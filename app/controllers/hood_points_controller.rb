@@ -1,6 +1,6 @@
 class HoodPointsController < ApplicationController
   def index
-    @hood_points = HoodPoint.all
+    @hood_points = HoodPoint.page(params[:page]).per(10)
 
     render("hood_points/index.html.erb")
   end

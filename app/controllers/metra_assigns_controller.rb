@@ -1,6 +1,6 @@
 class MetraAssignsController < ApplicationController
   def index
-    @metra_assigns = MetraAssign.all
+    @metra_assigns = MetraAssign.page(params[:page]).per(10)
 
     render("metra_assigns/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class ShowingsController < ApplicationController
   def index
-    @showings = Showing.all
+    @showings = Showing.page(params[:page]).per(10)
 
     render("showings/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class MetraStationsController < ApplicationController
   def index
-    @metra_stations = MetraStation.all
+    @metra_stations = MetraStation.page(params[:page]).per(10)
 
     render("metra_stations/index.html.erb")
   end

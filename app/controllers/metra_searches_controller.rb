@@ -1,6 +1,6 @@
 class MetraSearchesController < ApplicationController
   def index
-    @metra_searches = MetraSearch.all
+    @metra_searches = MetraSearch.page(params[:page]).per(10)
 
     render("metra_searches/index.html.erb")
   end
