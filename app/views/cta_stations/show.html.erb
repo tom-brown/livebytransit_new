@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Cta Station #<%= @cta_station.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @cta_station.name %></dd>
+
+      <dt>Lat</dt>
+      <dd><%= @cta_station.lat %></dd>
+
+      <dt>Lng</dt>
+      <dd><%= @cta_station.lng %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @cta_station.address %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/cta_stations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/cta_stations/<%= @cta_station.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_cta_station/<%= @cta_station.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
