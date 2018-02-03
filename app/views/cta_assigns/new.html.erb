@@ -33,7 +33,7 @@
           Cta line
         </label>
 
-        <input type="text" id="cta_line_id" name="cta_line_id" placeholder="Cta line" class="form-control" value="<%= @cta_assign.cta_line_id %>">
+        <%= select_tag(:cta_line_id, options_from_collection_for_select(CtaLine.all, :id, :name, @cta_assign.cta_line_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
