@@ -19,7 +19,7 @@
       <% @showings.each do |showing| %>
       <tr>
         <td><%= showing.user.email %></td>
-        <td><%= showing.listing_id %></td>
+        <td><%= showing.listing.address %></td>
         <td><%= showing.message %></td>
         <td><%= showing.date %></td>
         <td>
