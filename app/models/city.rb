@@ -12,6 +12,10 @@ class City < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :searches,
+             :through => :city_searches,
+             :source => :search
+
   # Validations
 
 end

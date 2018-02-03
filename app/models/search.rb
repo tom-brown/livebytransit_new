@@ -20,6 +20,10 @@ class Search < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :cities,
+             :through => :city_searches,
+             :source => :city
+
   has_many   :metra_stations,
              :through => :metra_searches,
              :source => :metra_station
