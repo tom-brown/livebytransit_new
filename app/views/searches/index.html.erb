@@ -50,8 +50,11 @@
         <td><%= search.new_mlsids %></td>
         <td>
           <a href="/searches/<%= search.id %>" class="btn btn-primary">Show</a>
-          <a href="/searches/<%= search.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_search/<%= search.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == search.user %>
+            <a href="/searches/<%= search.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_search/<%= search.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

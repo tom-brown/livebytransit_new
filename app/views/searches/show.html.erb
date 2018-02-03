@@ -62,12 +62,14 @@
       <a href="/searches" class="btn btn-primary">
         Back
       </a>
-      <a href="/searches/<%= @search.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_search/<%= @search.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @search.user %>
+        <a href="/searches/<%= @search.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_search/<%= @search.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
