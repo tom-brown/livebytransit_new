@@ -1,5 +1,7 @@
 ActiveAdmin.register HoodSearch do
 
+ permit_params :neighborhood_id, :search_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
