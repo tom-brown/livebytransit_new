@@ -20,6 +20,10 @@ class Listing < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :searches,
+             :through => :listings_searches,
+             :source => :search
+
   # Validations
 
 end
