@@ -31,7 +31,7 @@
 
       <% @searches.each do |search| %>
       <tr>
-        <td><%= search.user_id %></td>
+        <td><%= search.user.email %></td>
         <td><%= search.property_type %></td>
         <td><%= search.beds %></td>
         <td><%= search.baths %></td>
