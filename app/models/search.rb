@@ -20,6 +20,10 @@ class Search < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :neighborhoods,
+             :through => :hood_searches,
+             :source => :neighborhood
+
   has_many   :cities,
              :through => :city_searches,
              :source => :city

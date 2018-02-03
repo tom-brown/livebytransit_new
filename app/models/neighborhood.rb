@@ -14,6 +14,10 @@ class Neighborhood < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :searches,
+             :through => :hood_searches,
+             :source => :search
+
   # Validations
 
 end
