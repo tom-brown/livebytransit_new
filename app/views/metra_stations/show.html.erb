@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Metra Station #<%= @metra_station.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Lat</dt>
+      <dd><%= @metra_station.lat %></dd>
+
+      <dt>Lng</dt>
+      <dd><%= @metra_station.lng %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/metra_stations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/metra_stations/<%= @metra_station.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_metra_station/<%= @metra_station.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

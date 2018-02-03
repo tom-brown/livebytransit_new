@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Metra_station resource:
+  # CREATE
+  get "/metra_stations/new", :controller => "metra_stations", :action => "new"
+  post "/create_metra_station", :controller => "metra_stations", :action => "create"
+
+  # READ
+  get "/metra_stations", :controller => "metra_stations", :action => "index"
+  get "/metra_stations/:id", :controller => "metra_stations", :action => "show"
+
+  # UPDATE
+  get "/metra_stations/:id/edit", :controller => "metra_stations", :action => "edit"
+  post "/update_metra_station/:id", :controller => "metra_stations", :action => "update"
+
+  # DELETE
+  get "/delete_metra_station/:id", :controller => "metra_stations", :action => "destroy"
+  #------------------------------
+
   # Routes for the Metra_line resource:
   # CREATE
   get "/metra_lines/new", :controller => "metra_lines", :action => "new"
