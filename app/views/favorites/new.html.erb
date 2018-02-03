@@ -33,7 +33,7 @@
           Listing
         </label>
 
-        <input type="text" id="listing_id" name="listing_id" placeholder="Listing" class="form-control" value="<%= @favorite.listing_id %>">
+        <%= select_tag(:listing_id, options_from_collection_for_select(Listing.all, :id, :address, @favorite.listing_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
