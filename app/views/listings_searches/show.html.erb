@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Listings Search #<%= @listings_search.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Listing</dt>
+      <dd><%= @listings_search.listing_id %></dd>
+
+      <dt>Search</dt>
+      <dd><%= @listings_search.search_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/listings_searches" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/listings_searches/<%= @listings_search.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_listings_search/<%= @listings_search.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

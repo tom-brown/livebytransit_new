@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Listings_search resource:
+  # CREATE
+  get "/listings_searches/new", :controller => "listings_searches", :action => "new"
+  post "/create_listings_search", :controller => "listings_searches", :action => "create"
+
+  # READ
+  get "/listings_searches", :controller => "listings_searches", :action => "index"
+  get "/listings_searches/:id", :controller => "listings_searches", :action => "show"
+
+  # UPDATE
+  get "/listings_searches/:id/edit", :controller => "listings_searches", :action => "edit"
+  post "/update_listings_search/:id", :controller => "listings_searches", :action => "update"
+
+  # DELETE
+  get "/delete_listings_search/:id", :controller => "listings_searches", :action => "destroy"
+  #------------------------------
+
   # Routes for the Hood_search resource:
   # CREATE
   get "/hood_searches/new", :controller => "hood_searches", :action => "new"
