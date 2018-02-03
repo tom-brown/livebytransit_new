@@ -16,7 +16,7 @@
 
       <% @cta_searches.each do |cta_search| %>
       <tr>
-        <td><%= cta_search.search_id %></td>
+        <td><%= cta_search.search.user_id %></td>
         <td><%= cta_search.cta_station_id %></td>
         <td>
           <a href="/cta_searches/<%= cta_search.id %>" class="btn btn-primary">Show</a>
