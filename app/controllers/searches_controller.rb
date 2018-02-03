@@ -62,8 +62,6 @@ class SearchesController < ApplicationController
 
   def update
     @search = Search.find(params[:id])
-
-    @search.user_id = params[:user_id]
     @search.property_type = params[:property_type]
     @search.beds = params[:beds]
     @search.baths = params[:baths]
