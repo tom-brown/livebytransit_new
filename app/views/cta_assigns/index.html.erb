@@ -17,7 +17,7 @@
       <% @cta_assigns.each do |cta_assign| %>
       <tr>
         <td><%= cta_assign.cta_station.name %></td>
-        <td><%= cta_assign.cta_line_id %></td>
+        <td><%= cta_assign.cta_line.name %></td>
         <td>
           <a href="/cta_assigns/<%= cta_assign.id %>" class="btn btn-primary">Show</a>
           <a href="/cta_assigns/<%= cta_assign.id %>/edit" class="btn btn-warning">Edit</a>
