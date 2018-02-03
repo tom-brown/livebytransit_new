@@ -16,7 +16,7 @@
 
       <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.user_id %></td>
+        <td><%= contact.user.email %></td>
         <td><%= contact.message %></td>
         <td>
           <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Show</a>
