@@ -31,7 +31,13 @@
 
       <% @searches.each do |search| %>
       <tr>
-        <td><%= search.user.email %></td>
+        <td>
+          <% if search.user.present? %>
+            <a href="/users/<%= search.user.id %>">
+              <%= search.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= search.property_type %></td>
         <td><%= search.beds %></td>
         <td><%= search.baths %></td>

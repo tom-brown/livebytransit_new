@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Neighborhood</dt>
-      <dd><%= @hood_search.neighborhood_id %></dd>
+      <dd>
+        <% if @hood_search.neighborhood.present? %>
+          <a href="/neighborhoods/<%= @hood_search.neighborhood_id %>">
+            <%= @hood_search.neighborhood.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Search</dt>
-      <dd><%= @hood_search.search_id %></dd>
+      <dd>
+        <% if @hood_search.search.present? %>
+          <a href="/searches/<%= @hood_search.search_id %>">
+            <%= @hood_search.search.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

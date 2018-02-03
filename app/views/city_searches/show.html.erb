@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Search</dt>
-      <dd><%= @city_search.search_id %></dd>
+      <dd>
+        <% if @city_search.search.present? %>
+          <a href="/searches/<%= @city_search.search_id %>">
+            <%= @city_search.search.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>City</dt>
-      <dd><%= @city_search.city_id %></dd>
+      <dd>
+        <% if @city_search.city.present? %>
+          <a href="/cities/<%= @city_search.city_id %>">
+            <%= @city_search.city.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

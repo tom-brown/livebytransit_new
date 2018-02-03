@@ -62,7 +62,13 @@
         <td><%= listing.address %></td>
         <td><%= listing.lat %></td>
         <td><%= listing.lng %></td>
-        <td><%= listing.user.email %></td>
+        <td>
+          <% if listing.user.present? %>
+            <a href="/users/<%= listing.user.id %>">
+              <%= listing.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= listing.beds %></td>
         <td><%= listing.baths %></td>
         <td><%= listing.half_baths %></td>
@@ -72,7 +78,13 @@
         <td><%= listing.active %></td>
         <td><%= listing.age %></td>
         <td><%= listing.size %></td>
-        <td><%= listing.city.name %></td>
+        <td>
+          <% if listing.city.present? %>
+            <a href="/cities/<%= listing.city.id %>">
+              <%= listing.city.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= listing.heat_gas %></td>
         <td><%= listing.heat_radiator %></td>
         <td><%= listing.ac_window_units %></td>
@@ -97,7 +109,13 @@
         <td><%= listing.dogs %></td>
         <td><%= listing.available_date %></td>
         <td><%= listing.image_urls %></td>
-        <td><%= listing.neighborhood.name %></td>
+        <td>
+          <% if listing.neighborhood.present? %>
+            <a href="/neighborhoods/<%= listing.neighborhood.id %>">
+              <%= listing.neighborhood.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= listing.picture_count %></td>
         <td><%= listing.mls_id %></td>
         <td><%= listing.lo_mlsid %></td>

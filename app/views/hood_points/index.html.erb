@@ -17,7 +17,13 @@
 
       <% @hood_points.each do |hood_point| %>
       <tr>
-        <td><%= hood_point.neighborhood.name %></td>
+        <td>
+          <% if hood_point.neighborhood.present? %>
+            <a href="/neighborhoods/<%= hood_point.neighborhood.id %>">
+              <%= hood_point.neighborhood.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= hood_point.lat %></td>
         <td><%= hood_point.lng %></td>
         <td>

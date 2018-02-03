@@ -15,7 +15,13 @@
       <dd><%= @listing.lng %></dd>
 
       <dt>User</dt>
-      <dd><%= @listing.user_id %></dd>
+      <dd>
+        <% if @listing.user.present? %>
+          <a href="/users/<%= @listing.user_id %>">
+            <%= @listing.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Beds</dt>
       <dd><%= @listing.beds %></dd>
@@ -45,7 +51,13 @@
       <dd><%= @listing.size %></dd>
 
       <dt>City</dt>
-      <dd><%= @listing.city_id %></dd>
+      <dd>
+        <% if @listing.city.present? %>
+          <a href="/cities/<%= @listing.city_id %>">
+            <%= @listing.city.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Heat gas</dt>
       <dd><%= @listing.heat_gas %></dd>
@@ -120,7 +132,13 @@
       <dd><%= @listing.image_urls %></dd>
 
       <dt>Neighborhood</dt>
-      <dd><%= @listing.neighborhood_id %></dd>
+      <dd>
+        <% if @listing.neighborhood.present? %>
+          <a href="/neighborhoods/<%= @listing.neighborhood_id %>">
+            <%= @listing.neighborhood.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Picture count</dt>
       <dd><%= @listing.picture_count %></dd>

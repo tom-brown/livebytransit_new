@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Cta station</dt>
-      <dd><%= @cta_assign.cta_station_id %></dd>
+      <dd>
+        <% if @cta_assign.cta_station.present? %>
+          <a href="/cta_stations/<%= @cta_assign.cta_station_id %>">
+            <%= @cta_assign.cta_station.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Cta line</dt>
-      <dd><%= @cta_assign.cta_line_id %></dd>
+      <dd>
+        <% if @cta_assign.cta_line.present? %>
+          <a href="/cta_lines/<%= @cta_assign.cta_line_id %>">
+            <%= @cta_assign.cta_line.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

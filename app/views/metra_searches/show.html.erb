@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Search</dt>
-      <dd><%= @metra_search.search_id %></dd>
+      <dd>
+        <% if @metra_search.search.present? %>
+          <a href="/searches/<%= @metra_search.search_id %>">
+            <%= @metra_search.search.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Metra station</dt>
-      <dd><%= @metra_search.metra_station_id %></dd>
+      <dd>
+        <% if @metra_search.metra_station.present? %>
+          <a href="/metra_stations/<%= @metra_search.metra_station_id %>">
+            <%= @metra_search.metra_station.lat %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

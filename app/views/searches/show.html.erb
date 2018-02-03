@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @search.user_id %></dd>
+      <dd>
+        <% if @search.user.present? %>
+          <a href="/users/<%= @search.user_id %>">
+            <%= @search.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Property type</dt>
       <dd><%= @search.property_type %></dd>

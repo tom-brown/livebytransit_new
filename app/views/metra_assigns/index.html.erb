@@ -16,8 +16,20 @@
 
       <% @metra_assigns.each do |metra_assign| %>
       <tr>
-        <td><%= metra_assign.metra_line.created_at %></td>
-        <td><%= metra_assign.metra_station.lat %></td>
+        <td>
+          <% if metra_assign.metra_line.present? %>
+            <a href="/metra_lines/<%= metra_assign.metra_line.id %>">
+              <%= metra_assign.metra_line.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if metra_assign.metra_station.present? %>
+            <a href="/metra_stations/<%= metra_assign.metra_station.id %>">
+              <%= metra_assign.metra_station.lat %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/metra_assigns/<%= metra_assign.id %>" class="btn btn-primary">Show</a>
           <a href="/metra_assigns/<%= metra_assign.id %>/edit" class="btn btn-warning">Edit</a>

@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @favorite.user_id %></dd>
+      <dd>
+        <% if @favorite.user.present? %>
+          <a href="/users/<%= @favorite.user_id %>">
+            <%= @favorite.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Listing</dt>
-      <dd><%= @favorite.listing_id %></dd>
+      <dd>
+        <% if @favorite.listing.present? %>
+          <a href="/listings/<%= @favorite.listing_id %>">
+            <%= @favorite.listing.address %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

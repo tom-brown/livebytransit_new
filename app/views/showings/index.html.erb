@@ -18,8 +18,20 @@
 
       <% @showings.each do |showing| %>
       <tr>
-        <td><%= showing.user.email %></td>
-        <td><%= showing.listing.address %></td>
+        <td>
+          <% if showing.user.present? %>
+            <a href="/users/<%= showing.user.id %>">
+              <%= showing.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if showing.listing.present? %>
+            <a href="/listings/<%= showing.listing.id %>">
+              <%= showing.listing.address %>
+            </a>
+          <% end %>
+        </td>
         <td><%= showing.message %></td>
         <td><%= showing.date %></td>
         <td>

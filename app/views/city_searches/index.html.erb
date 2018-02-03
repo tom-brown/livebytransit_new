@@ -16,8 +16,20 @@
 
       <% @city_searches.each do |city_search| %>
       <tr>
-        <td><%= city_search.search.user_id %></td>
-        <td><%= city_search.city.name %></td>
+        <td>
+          <% if city_search.search.present? %>
+            <a href="/searches/<%= city_search.search.id %>">
+              <%= city_search.search.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if city_search.city.present? %>
+            <a href="/cities/<%= city_search.city.id %>">
+              <%= city_search.city.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/city_searches/<%= city_search.id %>" class="btn btn-primary">Show</a>
           <a href="/city_searches/<%= city_search.id %>/edit" class="btn btn-warning">Edit</a>

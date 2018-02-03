@@ -16,8 +16,20 @@
 
       <% @cta_searches.each do |cta_search| %>
       <tr>
-        <td><%= cta_search.search.user_id %></td>
-        <td><%= cta_search.cta_station.name %></td>
+        <td>
+          <% if cta_search.search.present? %>
+            <a href="/searches/<%= cta_search.search.id %>">
+              <%= cta_search.search.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if cta_search.cta_station.present? %>
+            <a href="/cta_stations/<%= cta_search.cta_station.id %>">
+              <%= cta_search.cta_station.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/cta_searches/<%= cta_search.id %>" class="btn btn-primary">Show</a>
           <a href="/cta_searches/<%= cta_search.id %>/edit" class="btn btn-warning">Edit</a>

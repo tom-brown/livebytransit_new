@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Listing</dt>
-      <dd><%= @listings_search.listing_id %></dd>
+      <dd>
+        <% if @listings_search.listing.present? %>
+          <a href="/listings/<%= @listings_search.listing_id %>">
+            <%= @listings_search.listing.address %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Search</dt>
-      <dd><%= @listings_search.search_id %></dd>
+      <dd>
+        <% if @listings_search.search.present? %>
+          <a href="/searches/<%= @listings_search.search_id %>">
+            <%= @listings_search.search.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

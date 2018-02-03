@@ -16,8 +16,20 @@
 
       <% @hood_searches.each do |hood_search| %>
       <tr>
-        <td><%= hood_search.neighborhood.name %></td>
-        <td><%= hood_search.search.user_id %></td>
+        <td>
+          <% if hood_search.neighborhood.present? %>
+            <a href="/neighborhoods/<%= hood_search.neighborhood.id %>">
+              <%= hood_search.neighborhood.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if hood_search.search.present? %>
+            <a href="/searches/<%= hood_search.search.id %>">
+              <%= hood_search.search.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/hood_searches/<%= hood_search.id %>" class="btn btn-primary">Show</a>
           <a href="/hood_searches/<%= hood_search.id %>/edit" class="btn btn-warning">Edit</a>

@@ -16,8 +16,20 @@
 
       <% @metra_searches.each do |metra_search| %>
       <tr>
-        <td><%= metra_search.search.user_id %></td>
-        <td><%= metra_search.metra_station.lat %></td>
+        <td>
+          <% if metra_search.search.present? %>
+            <a href="/searches/<%= metra_search.search.id %>">
+              <%= metra_search.search.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if metra_search.metra_station.present? %>
+            <a href="/metra_stations/<%= metra_search.metra_station.id %>">
+              <%= metra_search.metra_station.lat %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/metra_searches/<%= metra_search.id %>" class="btn btn-primary">Show</a>
           <a href="/metra_searches/<%= metra_search.id %>/edit" class="btn btn-warning">Edit</a>

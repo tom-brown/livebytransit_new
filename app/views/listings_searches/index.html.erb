@@ -16,8 +16,20 @@
 
       <% @listings_searches.each do |listings_search| %>
       <tr>
-        <td><%= listings_search.listing.address %></td>
-        <td><%= listings_search.search.user_id %></td>
+        <td>
+          <% if listings_search.listing.present? %>
+            <a href="/listings/<%= listings_search.listing.id %>">
+              <%= listings_search.listing.address %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if listings_search.search.present? %>
+            <a href="/searches/<%= listings_search.search.id %>">
+              <%= listings_search.search.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/listings_searches/<%= listings_search.id %>" class="btn btn-primary">Show</a>
           <a href="/listings_searches/<%= listings_search.id %>/edit" class="btn btn-warning">Edit</a>
