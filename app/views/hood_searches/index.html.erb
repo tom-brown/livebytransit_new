@@ -17,7 +17,7 @@
       <% @hood_searches.each do |hood_search| %>
       <tr>
         <td><%= hood_search.neighborhood.name %></td>
-        <td><%= hood_search.search_id %></td>
+        <td><%= hood_search.search.user_id %></td>
         <td>
           <a href="/hood_searches/<%= hood_search.id %>" class="btn btn-primary">Show</a>
           <a href="/hood_searches/<%= hood_search.id %>/edit" class="btn btn-warning">Edit</a>
