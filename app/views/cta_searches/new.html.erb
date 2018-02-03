@@ -33,7 +33,7 @@
           Cta station
         </label>
 
-        <input type="text" id="cta_station_id" name="cta_station_id" placeholder="Cta station" class="form-control" value="<%= @cta_search.cta_station_id %>">
+        <%= select_tag(:cta_station_id, options_from_collection_for_select(CtaStation.all, :id, :name, @cta_search.cta_station_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
