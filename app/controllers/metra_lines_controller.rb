@@ -6,6 +6,7 @@ class MetraLinesController < ApplicationController
   end
 
   def show
+    @metra_assign = MetraAssign.new
     @metra_line = MetraLine.find(params[:id])
 
     render("metra_lines/show.html.erb")

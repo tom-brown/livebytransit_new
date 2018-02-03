@@ -6,6 +6,8 @@ class CtaStationsController < ApplicationController
   end
 
   def show
+    @cta_search = CtaSearch.new
+    @cta_assign = CtaAssign.new
     @cta_station = CtaStation.find(params[:id])
 
     render("cta_stations/show.html.erb")

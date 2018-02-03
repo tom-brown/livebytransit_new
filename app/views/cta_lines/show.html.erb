@@ -51,6 +51,35 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_cta_assign" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for cta_station_id -->
+      <div class="form-group">
+        <label for="cta_station_id" class="control-label">
+          Cta station
+        </label>
+
+        <%= select_tag(:cta_station_id, options_from_collection_for_select(CtaStation.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for cta_line_id -->
+      <div class="form-group">
+        <label for="cta_line_id" class="control-label">
+          Cta line
+        </label>
+
+        <%= select_tag(:cta_line_id, options_from_collection_for_select(CtaLine.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Cta Assign
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

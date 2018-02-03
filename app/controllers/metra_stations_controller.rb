@@ -6,6 +6,8 @@ class MetraStationsController < ApplicationController
   end
 
   def show
+    @metra_search = MetraSearch.new
+    @metra_assign = MetraAssign.new
     @metra_station = MetraStation.find(params[:id])
 
     render("metra_stations/show.html.erb")

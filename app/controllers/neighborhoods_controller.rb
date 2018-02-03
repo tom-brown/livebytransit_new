@@ -6,6 +6,9 @@ class NeighborhoodsController < ApplicationController
   end
 
   def show
+    @hood_point = HoodPoint.new
+    @listing = Listing.new
+    @hood_search = HoodSearch.new
     @neighborhood = Neighborhood.find(params[:id])
 
     render("neighborhoods/show.html.erb")

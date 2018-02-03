@@ -16,6 +16,11 @@ class SearchesController < ApplicationController
   end
 
   def show
+    @listings_search = ListingsSearch.new
+    @city_search = CitySearch.new
+    @hood_search = HoodSearch.new
+    @metra_search = MetraSearch.new
+    @cta_search = CtaSearch.new
     @search = Search.find(params[:id])
 
     render("searches/show.html.erb")

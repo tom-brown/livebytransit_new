@@ -6,6 +6,7 @@ class CtaLinesController < ApplicationController
   end
 
   def show
+    @cta_assign = CtaAssign.new
     @cta_line = CtaLine.find(params[:id])
 
     render("cta_lines/show.html.erb")

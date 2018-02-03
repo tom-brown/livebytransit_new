@@ -101,6 +101,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_cta_search" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for search_id -->
+      <input type="hidden" name="search_id" value="<%= @search.id %>">
+
+      <!-- Label and input for cta_station_id -->
+      <div class="form-group">
+        <label for="cta_station_id" class="control-label">
+          Cta station
+        </label>
+
+        <%= select_tag(:cta_station_id, options_from_collection_for_select(CtaStation.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Cta Search
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -132,6 +155,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_metra_search" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for search_id -->
+      <input type="hidden" name="search_id" value="<%= @search.id %>">
+
+      <!-- Label and input for metra_station_id -->
+      <div class="form-group">
+        <label for="metra_station_id" class="control-label">
+          Metra station
+        </label>
+
+        <%= select_tag(:metra_station_id, options_from_collection_for_select(MetraStation.all, :id, :lat), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Metra Search
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -163,6 +209,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_hood_search" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for neighborhood_id -->
+      <div class="form-group">
+        <label for="neighborhood_id" class="control-label">
+          Neighborhood
+        </label>
+
+        <%= select_tag(:neighborhood_id, options_from_collection_for_select(Neighborhood.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for search_id -->
+      <input type="hidden" name="search_id" value="<%= @search.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Hood Search
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -194,6 +263,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_city_search" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for search_id -->
+      <input type="hidden" name="search_id" value="<%= @search.id %>">
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <%= select_tag(:city_id, options_from_collection_for_select(City.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create City Search
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -225,6 +317,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_listings_search" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listing_id -->
+      <div class="form-group">
+        <label for="listing_id" class="control-label">
+          Listing
+        </label>
+
+        <%= select_tag(:listing_id, options_from_collection_for_select(Listing.all, :id, :address), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for search_id -->
+      <input type="hidden" name="search_id" value="<%= @search.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Listings Search
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
