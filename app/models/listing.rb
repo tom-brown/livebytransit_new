@@ -1,6 +1,9 @@
 class Listing < ApplicationRecord
   # Direct associations
 
+  belongs_to :user,
+             :required => false
+
   has_many   :listings_searches,
              :dependent => :destroy
 
