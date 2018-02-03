@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Hood_point resource:
+  # CREATE
+  get "/hood_points/new", :controller => "hood_points", :action => "new"
+  post "/create_hood_point", :controller => "hood_points", :action => "create"
+
+  # READ
+  get "/hood_points", :controller => "hood_points", :action => "index"
+  get "/hood_points/:id", :controller => "hood_points", :action => "show"
+
+  # UPDATE
+  get "/hood_points/:id/edit", :controller => "hood_points", :action => "edit"
+  post "/update_hood_point/:id", :controller => "hood_points", :action => "update"
+
+  # DELETE
+  get "/delete_hood_point/:id", :controller => "hood_points", :action => "destroy"
+  #------------------------------
+
   # Routes for the Neighborhood resource:
   # CREATE
   get "/neighborhoods/new", :controller => "neighborhoods", :action => "new"
