@@ -1,0 +1,157 @@
+<div class="page-header">
+  <h3>Listing #<%= @listing.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Address</dt>
+      <dd><%= @listing.address %></dd>
+
+      <dt>Lat</dt>
+      <dd><%= @listing.lat %></dd>
+
+      <dt>Lng</dt>
+      <dd><%= @listing.lng %></dd>
+
+      <dt>User</dt>
+      <dd><%= @listing.user_id %></dd>
+
+      <dt>Beds</dt>
+      <dd><%= @listing.beds %></dd>
+
+      <dt>Baths</dt>
+      <dd><%= @listing.baths %></dd>
+
+      <dt>Half baths</dt>
+      <dd><%= @listing.half_baths %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @listing.description %></dd>
+
+      <dt>Garage spaces</dt>
+      <dd><%= @listing.garage_spaces %></dd>
+
+      <dt>Assigned parking</dt>
+      <dd><%= @listing.assigned_parking %></dd>
+
+      <dt>Active</dt>
+      <dd><%= @listing.active %></dd>
+
+      <dt>Age</dt>
+      <dd><%= @listing.age %></dd>
+
+      <dt>Size</dt>
+      <dd><%= @listing.size %></dd>
+
+      <dt>City</dt>
+      <dd><%= @listing.city_id %></dd>
+
+      <dt>Heat gas</dt>
+      <dd><%= @listing.heat_gas %></dd>
+
+      <dt>Heat radiator</dt>
+      <dd><%= @listing.heat_radiator %></dd>
+
+      <dt>Ac window units</dt>
+      <dd><%= @listing.ac_window_units %></dd>
+
+      <dt>Ac central</dt>
+      <dd><%= @listing.ac_central %></dd>
+
+      <dt>List date</dt>
+      <dd><%= @listing.list_date %></dd>
+
+      <dt>Pin</dt>
+      <dd><%= @listing.pin %></dd>
+
+      <dt>Recent rehab</dt>
+      <dd><%= @listing.recent_rehab %></dd>
+
+      <dt>Vintage</dt>
+      <dd><%= @listing.vintage %></dd>
+
+      <dt>New construction</dt>
+      <dd><%= @listing.new_construction %></dd>
+
+      <dt>Price</dt>
+      <dd><%= @listing.price %></dd>
+
+      <dt>Rental</dt>
+      <dd><%= @listing.rental %></dd>
+
+      <dt>State</dt>
+      <dd><%= @listing.state %></dd>
+
+      <dt>St num</dt>
+      <dd><%= @listing.st_num %></dd>
+
+      <dt>Street</dt>
+      <dd><%= @listing.street %></dd>
+
+      <dt>St suffix</dt>
+      <dd><%= @listing.st_suffix %></dd>
+
+      <dt>Cp</dt>
+      <dd><%= @listing.cp %></dd>
+
+      <dt>Unit</dt>
+      <dd><%= @listing.unit %></dd>
+
+      <dt>Zip code</dt>
+      <dd><%= @listing.zip_code %></dd>
+
+      <dt>Property type</dt>
+      <dd><%= @listing.property_type %></dd>
+
+      <dt>Laundry</dt>
+      <dd><%= @listing.laundry %></dd>
+
+      <dt>Cats</dt>
+      <dd><%= @listing.cats %></dd>
+
+      <dt>Dogs</dt>
+      <dd><%= @listing.dogs %></dd>
+
+      <dt>Available date</dt>
+      <dd><%= @listing.available_date %></dd>
+
+      <dt>Image urls</dt>
+      <dd><%= @listing.image_urls %></dd>
+
+      <dt>Neighborhood</dt>
+      <dd><%= @listing.neighborhood_id %></dd>
+
+      <dt>Picture count</dt>
+      <dd><%= @listing.picture_count %></dd>
+
+      <dt>Mls</dt>
+      <dd><%= @listing.mls_id %></dd>
+
+      <dt>Lo mlsid</dt>
+      <dd><%= @listing.lo_mlsid %></dd>
+
+      <dt>La first name</dt>
+      <dd><%= @listing.la_first_name %></dd>
+
+      <dt>La last name</dt>
+      <dd><%= @listing.la_last_name %></dd>
+
+      <dt>Total baths</dt>
+      <dd><%= @listing.total_baths %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/listings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/listings/<%= @listing.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_listing/<%= @listing.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
