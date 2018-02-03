@@ -1,6 +1,9 @@
 class Listing < ApplicationRecord
   # Direct associations
 
+  belongs_to :neighborhood,
+             :required => false
+
   belongs_to :city
 
   belongs_to :user,
