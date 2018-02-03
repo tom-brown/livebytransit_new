@@ -17,7 +17,7 @@
 
       <% @hood_points.each do |hood_point| %>
       <tr>
-        <td><%= hood_point.neighborhood_id %></td>
+        <td><%= hood_point.neighborhood.name %></td>
         <td><%= hood_point.lat %></td>
         <td><%= hood_point.lng %></td>
         <td>
