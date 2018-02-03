@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Hood Search #<%= @hood_search.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Neighborhood</dt>
+      <dd><%= @hood_search.neighborhood_id %></dd>
+
+      <dt>Search</dt>
+      <dd><%= @hood_search.search_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/hood_searches" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/hood_searches/<%= @hood_search.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_hood_search/<%= @hood_search.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
