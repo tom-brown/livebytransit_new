@@ -24,7 +24,7 @@
           Search
         </label>
 
-        <input type="text" id="search_id" name="search_id" placeholder="Search" class="form-control" value="<%= @metra_search.search_id %>">
+        <%= select_tag(:search_id, options_from_collection_for_select(Search.all, :id, :user_id, @metra_search.search_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for metra_station_id -->
