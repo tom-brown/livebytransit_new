@@ -1,6 +1,9 @@
 class MetraLine < ApplicationRecord
   # Direct associations
 
+  has_many   :metra_assigns,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
