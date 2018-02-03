@@ -16,7 +16,7 @@
 
       <% @listings_searches.each do |listings_search| %>
       <tr>
-        <td><%= listings_search.listing_id %></td>
+        <td><%= listings_search.listing.address %></td>
         <td><%= listings_search.search_id %></td>
         <td>
           <a href="/listings_searches/<%= listings_search.id %>" class="btn btn-primary">Show</a>
