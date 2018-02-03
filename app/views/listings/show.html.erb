@@ -155,3 +155,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Listing has many favorites -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Favorites
+      </li>
+
+      <% @listing.favorites.each do |favorite| %>
+        <li class="list-group-item">
+          <a href="/favorites/<%= favorite.id %>">
+            <%= favorite.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/favorites/<%= favorite.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_favorite/<%= favorite.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many showings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Showings
+      </li>
+
+      <% @listing.showings.each do |showing| %>
+        <li class="list-group-item">
+          <a href="/showings/<%= showing.id %>">
+            <%= showing.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/showings/<%= showing.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/showings/<%= showing.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_showing/<%= showing.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many listings_searches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Listings Searches
+      </li>
+
+      <% @listing.listings_searches.each do |listings_search| %>
+        <li class="list-group-item">
+          <a href="/listings_searches/<%= listings_search.id %>">
+            <%= listings_search.listing_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/listings_searches/<%= listings_search.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/listings_searches/<%= listings_search.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_listings_search/<%= listings_search.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many searches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Searches
+      </li>
+
+      <% @listing.searches.each do |search| %>
+        <li class="list-group-item">
+          <a href="/searches/<%= search.id %>">
+            <%= search.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/searches/<%= search.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/searches/<%= search.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_search/<%= search.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

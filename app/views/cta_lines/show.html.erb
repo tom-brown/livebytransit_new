@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Cta line has many cta_assigns -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Cta Assigns
+      </li>
+
+      <% @cta_line.cta_assigns.each do |cta_assign| %>
+        <li class="list-group-item">
+          <a href="/cta_assigns/<%= cta_assign.id %>">
+            <%= cta_assign.cta_station_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/cta_assigns/<%= cta_assign.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/cta_assigns/<%= cta_assign.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_cta_assign/<%= cta_assign.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Cta line has many cta_stations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Cta Stations
+      </li>
+
+      <% @cta_line.cta_stations.each do |cta_station| %>
+        <li class="list-group-item">
+          <a href="/cta_stations/<%= cta_station.id %>">
+            <%= cta_station.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/cta_stations/<%= cta_station.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/cta_stations/<%= cta_station.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_cta_station/<%= cta_station.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

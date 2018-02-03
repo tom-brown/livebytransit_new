@@ -23,3 +23,127 @@
     </div>
   </div>
 </div>
+
+<!-- A City has many neighborhoods -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Neighborhoods
+      </li>
+
+      <% @city.neighborhoods.each do |neighborhood| %>
+        <li class="list-group-item">
+          <a href="/neighborhoods/<%= neighborhood.id %>">
+            <%= neighborhood.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/neighborhoods/<%= neighborhood.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/neighborhoods/<%= neighborhood.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_neighborhood/<%= neighborhood.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A City has many city_searches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        City Searches
+      </li>
+
+      <% @city.city_searches.each do |city_search| %>
+        <li class="list-group-item">
+          <a href="/city_searches/<%= city_search.id %>">
+            <%= city_search.search_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/city_searches/<%= city_search.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/city_searches/<%= city_search.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_city_search/<%= city_search.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A City has many listings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Listings
+      </li>
+
+      <% @city.listings.each do |listing| %>
+        <li class="list-group-item">
+          <a href="/listings/<%= listing.id %>">
+            <%= listing.address %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/listings/<%= listing.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A City has many searches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Searches
+      </li>
+
+      <% @city.searches.each do |search| %>
+        <li class="list-group-item">
+          <a href="/searches/<%= search.id %>">
+            <%= search.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/searches/<%= search.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/searches/<%= search.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_search/<%= search.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

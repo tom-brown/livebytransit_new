@@ -32,3 +32,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Cta station has many cta_assigns -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Cta Assigns
+      </li>
+
+      <% @cta_station.cta_assigns.each do |cta_assign| %>
+        <li class="list-group-item">
+          <a href="/cta_assigns/<%= cta_assign.id %>">
+            <%= cta_assign.cta_station_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/cta_assigns/<%= cta_assign.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/cta_assigns/<%= cta_assign.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_cta_assign/<%= cta_assign.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Cta station has many cta_searches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Cta Searches
+      </li>
+
+      <% @cta_station.cta_searches.each do |cta_search| %>
+        <li class="list-group-item">
+          <a href="/cta_searches/<%= cta_search.id %>">
+            <%= cta_search.search_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/cta_searches/<%= cta_search.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/cta_searches/<%= cta_search.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_cta_search/<%= cta_search.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Cta station has many searches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Searches
+      </li>
+
+      <% @cta_station.searches.each do |search| %>
+        <li class="list-group-item">
+          <a href="/searches/<%= search.id %>">
+            <%= search.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/searches/<%= search.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/searches/<%= search.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_search/<%= search.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Cta station has many cta_lines -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Cta Lines
+      </li>
+
+      <% @cta_station.cta_lines.each do |cta_line| %>
+        <li class="list-group-item">
+          <a href="/cta_lines/<%= cta_line.id %>">
+            <%= cta_line.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/cta_lines/<%= cta_line.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/cta_lines/<%= cta_line.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_cta_line/<%= cta_line.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -26,3 +26,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Metra station has many metra_assigns -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Metra Assigns
+      </li>
+
+      <% @metra_station.metra_assigns.each do |metra_assign| %>
+        <li class="list-group-item">
+          <a href="/metra_assigns/<%= metra_assign.id %>">
+            <%= metra_assign.metra_line_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/metra_assigns/<%= metra_assign.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/metra_assigns/<%= metra_assign.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_metra_assign/<%= metra_assign.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Metra station has many metra_searches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Metra Searches
+      </li>
+
+      <% @metra_station.metra_searches.each do |metra_search| %>
+        <li class="list-group-item">
+          <a href="/metra_searches/<%= metra_search.id %>">
+            <%= metra_search.search_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/metra_searches/<%= metra_search.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/metra_searches/<%= metra_search.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_metra_search/<%= metra_search.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Metra station has many searches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Searches
+      </li>
+
+      <% @metra_station.searches.each do |search| %>
+        <li class="list-group-item">
+          <a href="/searches/<%= search.id %>">
+            <%= search.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/searches/<%= search.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/searches/<%= search.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_search/<%= search.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Metra station has many metra_lines -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Metra Lines
+      </li>
+
+      <% @metra_station.metra_lines.each do |metra_line| %>
+        <li class="list-group-item">
+          <a href="/metra_lines/<%= metra_line.id %>">
+            <%= metra_line.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/metra_lines/<%= metra_line.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/metra_lines/<%= metra_line.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_metra_line/<%= metra_line.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

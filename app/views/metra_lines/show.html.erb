@@ -20,3 +20,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Metra line has many metra_assigns -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Metra Assigns
+      </li>
+
+      <% @metra_line.metra_assigns.each do |metra_assign| %>
+        <li class="list-group-item">
+          <a href="/metra_assigns/<%= metra_assign.id %>">
+            <%= metra_assign.metra_line_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/metra_assigns/<%= metra_assign.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/metra_assigns/<%= metra_assign.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_metra_assign/<%= metra_assign.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Metra line has many metra_stations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Metra Stations
+      </li>
+
+      <% @metra_line.metra_stations.each do |metra_station| %>
+        <li class="list-group-item">
+          <a href="/metra_stations/<%= metra_station.id %>">
+            <%= metra_station.lat %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/metra_stations/<%= metra_station.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/metra_stations/<%= metra_station.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_metra_station/<%= metra_station.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
