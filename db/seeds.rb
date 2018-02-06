@@ -6,3 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+#load Neighborhoods
+Rake::Task['neighborhoods'].invoke
+Rake::Task['neighborhood_minmax'].invoke
+
+#load CtaStations, CtaLines, & CtaAssigns
+Rake::Task['cta_stations'].invoke
+
+#load MetraStations, MetraLines, & MetraAssigns
+Rake::Task['metra_trains'].invoke
+
+#load Listings
+
+
