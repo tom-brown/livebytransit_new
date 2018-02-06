@@ -1,7 +1,7 @@
 class HoodPoint < ApplicationRecord
   # Direct associations
 
-  #belongs_to :neighborhood
+  belongs_to :neighborhood
 
   # Indirect associations
 

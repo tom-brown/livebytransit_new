@@ -10,7 +10,7 @@ class Neighborhood < ApplicationRecord
   has_many   :hood_searches,
              :dependent => :destroy
 
-  # belongs_to :city
+  belongs_to :city
 
   # Indirect associations
 
