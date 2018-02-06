@@ -1,5 +1,5 @@
-desc 'upload neighborhood names and boundaries'
-task :neighborhoods => :environment do
+desc 'listings'
+task :listings => :environment do
 
 require 'aws/s3'
 require 'rets'

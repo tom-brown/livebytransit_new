@@ -3,12 +3,14 @@ task :neighborhoods => :environment do
 
   Neighborhood.destroy_all
   HoodPoint.destroy_all
-
+  
+  city = City.create(name: "Chicago")
+  
   require 'csv'
   
   CSV.foreach('chicago_hood_points.csv', :headers => true) do |row|
     n = Neighborhood.find_or_create_by(:name => row['pri_neigh'].titlecase) do |hood|
-      hood.city_id = 1
+      hood.city_id = city.id
       hood.save
     end
     HoodPoint.create(:neighborhood_id => n.id, :lat => row['Y'], :lng => row['X'])
