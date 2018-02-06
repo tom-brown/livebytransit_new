@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206133112) do
+ActiveRecord::Schema.define(version: 20180206184453) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -85,12 +85,12 @@ ActiveRecord::Schema.define(version: 20180206133112) do
 
   create_table "cta_stations", force: :cascade do |t|
     t.string   "name"
-    t.float    "lat"
-    t.float    "lng"
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "stop_id"
+    t.float    "lat",        default: 0.0
+    t.float    "lng",        default: 0.0
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -102,10 +102,10 @@ ActiveRecord::Schema.define(version: 20180206133112) do
 
   create_table "hood_points", force: :cascade do |t|
     t.integer  "neighborhood_id"
-    t.float    "lat"
-    t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "lat",             default: 0.0
+    t.float    "lng",             default: 0.0
   end
 
   create_table "hood_searches", force: :cascade do |t|
@@ -117,8 +117,6 @@ ActiveRecord::Schema.define(version: 20180206133112) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "address"
-    t.float    "lat"
-    t.float    "lng"
     t.integer  "user_id"
     t.integer  "beds"
     t.integer  "baths"
@@ -163,6 +161,8 @@ ActiveRecord::Schema.define(version: 20180206133112) do
     t.float    "total_baths"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "lat",              default: 0.0
+    t.float    "lng",              default: 0.0
   end
 
   create_table "listings_searches", force: :cascade do |t|
@@ -193,12 +193,12 @@ ActiveRecord::Schema.define(version: 20180206133112) do
   end
 
   create_table "metra_stations", force: :cascade do |t|
-    t.float    "lat"
-    t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "station_id"
     t.string   "name"
+    t.float    "lat",        default: 0.0
+    t.float    "lng",        default: 0.0
   end
 
   create_table "neighborhoods", force: :cascade do |t|
