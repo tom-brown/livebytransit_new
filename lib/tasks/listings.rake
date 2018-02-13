@@ -1,7 +1,7 @@
 desc 'listings'
 task :listings => :environment do
 
-require 'aws/s3'
+# require 'aws/s3'
 require 'rets'
 
 # module RetsReader
@@ -13,22 +13,22 @@ require 'rets'
     PASSWORD = ENV["RETS_KEY2"]
     VERSION = 'RETS/1.7'
     INCLUDED_STATUSES = ['ACTV', 'AUCT', 'NEW', 'PCHG', 'BOMK', 'RACT', 'CTG', 'PEND']
-    CLASSES = ['ResidentialProperty', 'RN']
-    COLUMNS = ['prop_mlsid', 'status', 'cp', 'st_number', 'st_name', 'st_suffix',
-    'unit', 'city', 'state', 'zip', 'latitude',
-    'longitude', 'beds', 'baths_full', 'baths_half', 'parking', 'office',
-    'lo_mlsid', 'la_fname', 'la_lname', 'description',
-    'email', 'pets', 'modtime', 'picture_count', 'active']
-  # system names for the columns above.
+    # CLASSES = ['ResidentialProperty', 'RN']
+    CLASSES = ['RN']
+    COLUMNS = ['mls_id', 'status', 'cp', 'st_num', 'street', 'st_suffix',
+    'unit', 'city', 'state', 'zip_code', 'lat',
+    'lng', 'beds', 'baths', 'half_baths', 'garage_spaces',
+    'lo_mlsid', 'la_first_name', 'la_last_name', 'description',
+    'dogs', 'modtime', 'picture_count', 'active']
+    # columns to add: list_date, property_type,
     COLUMNS_SYSTEM = ['LN', 'ST', 'CP', 'HSN', 'STR', 'STREETSUFFIX', 'UN', 'CIT', 'STATE',
-    'ZP', 'LAT', 'LNG', 'BR', 'FULL_BATHS', 'HALF_BATHS', 'NO_PARKING_SPACES',
-    'LONAME', 'LOID', 'LAFIRSTNAME', 'LALASTNAME', 'REMARKS', 'LAEMAIL', 'PTA',
+    'ZP', 'LAT', 'LNG', 'BR', 'FULL_BATHS', 'HALF_BATHS', 'NO_PARKING_SPACES', 'LOID', 'LAFIRSTNAME', 'LALASTNAME', 'REMARKS', 'PTA',
     'UD', 'PHOTOCOUNT', 'ADI']
-    ACCESS_KEY_ID = ENV["ACCESS_KEY_ID"]
-    SECRET_ACCESS_KEY = ENV["SECRET_ACCESS_KEY"]
-    S3_BUCKET_NAME = 'media.livebytransit.com'
+    # ACCESS_KEY_ID = ENV["ACCESS_KEY_ID"]
+    # SECRET_ACCESS_KEY = ENV["SECRET_ACCESS_KEY"]
+    # S3_BUCKET_NAME = 'media.livebytransit.com'
 
-  def self.perform
+  # def self.perform
 
  client = Rets::Client.new({
    login_url: LOGIN_URL,
@@ -109,42 +109,42 @@ ids = []
     #       end
         #replace keys in property hash with listing attributes
           listing_hash = Hash[property.map {|k, v| [ctcs[k], v] }]
-          listing_id = listing_hash["prop_mlsid"]
+          listing_id = listing_hash["mls_id"]
     #       listing = Listing.where(:prop_mlsid => listing_id).first_or_create(listing_hash)
-          if listing = Listing.find_by_prop_mlsid(listing_id)
+          if listing = Listing.find_by(mls_id: listing_id)
             listing_hash.delete("city")
             listing.update_attributes(listing_hash)
 #             puts "Listing #{listing.prop_mlsid} updated with new data"
           else
 #           puts listing_hash
             #convert the city attribute to a city_id and delete the city attribute to avoid mismatch error
-            city_name = listing_hash["city"].upcase
+            city_name = listing_hash["city"].titlecase
             city = City.where(name: city_name).first_or_create
             listing_hash.delete("city")
             listing = Listing.new(listing_hash)
             listing.city_id = city.id
-            listing.address = "#{listing.st_number} #{listing.cp} #{listing.st_name} #{listing.st_suffix}"
-            listing.cats = if listing.pets == 'no' then 'false' else 'true' end
-            listing.dogs = listing.cats
-            listing.laundry = if (listing.description =~ /([Ii]n-unit(,)?)+/) then '3' else '2' end
-            listing.baths = listing.baths_full.to_i + (listing.baths_half.to_i > 0 ? 0.5 : 0)
+            listing.address = "#{listing.st_num} #{listing.cp} #{listing.street} #{listing.st_suffix}"
+            listing.cats = if listing.dogs == 'no' then 'false' else 'true' end
+            # listing.dogs = listing.cats
+            listing.laundry = if (listing.description =~ /([Ii]n-unit(,)?)+/) then "in-unit" else 'in-building' end
+            listing.total_baths = listing.baths.to_i + (listing.half_baths.to_i > 0 ? 0.5 : 0)
             listing.active = true
             if klass == 'RN'
               listing.property_type = 'Residential Rental'
             end
             listing.save
             
-            begin
-              listing.update_geocode2
-              puts listing.city.name
-              if listing.city.name.strip.upcase == "CHICAGO"
-                puts "We are about to find_school"
-                listing.find_school
-                listing.find_neighborhood
-              end
-            rescue => e
-               puts 'Error: ' + e.message
-            end
+            # begin
+            #   listing.update_geocode2
+            #   puts listing.city.name
+            #   if listing.city.name.strip.titlecase == "Chicago"
+            #     puts "We are about to find_school"
+            #     # listing.find_school
+            #     # listing.find_neighborhood
+            #   end
+            # rescue => e
+            #   puts 'Error: ' + e.message
+            # end
                       
             new_ids << listing.id
           end
@@ -185,45 +185,46 @@ ids = []
 
       puts 'Now save the pictures'
 
-      AWS::S3::Base.establish_connection!(
-        :access_key_id => ACCESS_KEY_ID,
-        :secret_access_key => SECRET_ACCESS_KEY
-      )
-      puts 'connected to AWS'
+      # AWS::S3::Base.establish_connection!(
+      #   :access_key_id => ACCESS_KEY_ID,
+      #   :secret_access_key => SECRET_ACCESS_KEY
+      # )
+      # puts 'connected to AWS'
 
-      ids.each do |id|
-        p = Listing.find(id)
-        if p.ImageURLs
-          next
-        end
-          photo_count = p.picture_count.to_i
-          listing_id = p.prop_mlsid
-        if photo_count < 1
-          next
-        end
-        if listing_id.nil?
-          next
-        end
-          puts photo_count
-          puts listing_id
-          photos = client.objects '*', {
-             resource: 'Property',
-             object_type: 'Photo',
-             resource_id: listing_id
-           }
+      # ids.each do |id|
+      #   p = Listing.find(id)
+      #   if p.ImageURLs
+      #     next
+      #   end
+      #     photo_count = p.picture_count.to_i
+      #     listing_id = p.prop_mlsid
+      #   if photo_count < 1
+      #     next
+      #   end
+      #   if listing_id.nil?
+      #     next
+      #   end
+      #     puts photo_count
+      #     puts listing_id
+      #     photos = client.objects '*', {
+      #       resource: 'Property',
+      #       object_type: 'Photo',
+      #       resource_id: listing_id
+      #     }
 
-        # Loop photos, split the response & save each photo to AWS bucket
-          # -photos = Rets::Parser::Multipart.parse photo_list,
-            image_urls = []
-            photos.each_with_index do |data, index|
-               filename = "#{listing_id}:#{index.to_s}.jpg"
-               AWS::S3::S3Object.store(filename, data.body, S3_BUCKET_NAME)
-               image_urls << "https://s3.amazonaws.com/#{S3_BUCKET_NAME}/#{filename}"
-            end
-            p.update_attributes(:ImageURLs => image_urls)
-            puts image_urls
-            p = nil
-      end # pictures ids.each do
+      #   # Loop photos, split the response & save each photo to AWS bucket
+      #     # -photos = Rets::Parser::Multipart.parse photo_list,
+      #       image_urls = []
+      #       photos.each_with_index do |data, index|
+      #         filename = "#{listing_id}:#{index.to_s}.jpg"
+      #         AWS::S3::S3Object.store(filename, data.body, S3_BUCKET_NAME)
+      #         image_urls << "https://s3.amazonaws.com/#{S3_BUCKET_NAME}/#{filename}"
+      #       end
+      #       p.update_attributes(:ImageURLs => image_urls)
+      #       puts image_urls
+      #       p = nil
+      # end # pictures ids.each do
 client.logout
-end #def
-end #module
+# end #def
+# end #module
+end #do

@@ -70,7 +70,40 @@ task :cta_stations => :environment do
       end
     end
   end
-end          
+end  
+
+desc "update cta_stations with lat lng"
+task update_cta: :environment do
+  
+  require 'csv'
+  
+  CSV.foreach('cta_trainstations.csv', :headers => true) do |row|
+     if station = CtaStation.find_by(stop_id: row['STOP_ID'])
+        if station.lat.nil? || station.lat == 0  
+          station.lat = row['Location'].delete('()').split(',').first.strip.to_f
+          station.lng = row['Location'].delete('()').split(',').last.strip.to_f
+          station.save
+          p "#{station.name} supposedly updated with lat:#{station.lat}"
+        else 
+          next
+        end
+      end
+    end
+end
+
+desc "Create cta_proximity table for listings within 0.8 miles of a cta_station"
+task cta_proximity: :environment do
+
+  Listing.find_each do |listing|
+    CtaStation.all.each do |station|
+      if station.distance_to([listing.lat,listing.lng]) < 0.9
+        CtaProx.create(listing_id: listing.id, cta_station_id: station.id)
+        p "#{listing.address} assigned to #{station.name} on the #{station.cta_lines.pluck(:name)} line(s)"
+      end
+    end
+  end
+end
+
 
 desc "Trying to find addresses for cta_stations"  #not working because stop_id does not line up with gtfs data
 task find_cta_addresses: :environment do

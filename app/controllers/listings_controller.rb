@@ -1,8 +1,16 @@
 class ListingsController < ApplicationController
   def index
+    cta_ids = CtaStation.all.collect{|x| x.id}
     @q = Listing.ransack(params[:q])
-    @listings = @q.result(:distinct => true).includes(:favorites, :showings, :listings_searches, :user, :city, :neighborhood, :searches).page(params[:page]).per(10)
-
+    @listings = @q.result(:distinct => true).includes(:favorites, :showings, :listings_searches, :user, :city, :neighborhood, :searches).page(params[:page]).per(100)
+    @listings = @listings.cta_stations(cta_ids,0.5)
+    p @listings.class
+    p "#{@listings.count}"
+    @marker_ruby = []
+      @listings.each do |listing|
+        @marker_ruby << [listing.address,listing.lat,listing.lng]
+      end
+      @marker_ruby=@marker_ruby.to_json
     render("listings/index.html.erb")
   end
 

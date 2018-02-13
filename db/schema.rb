@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206184453) do
+ActiveRecord::Schema.define(version: 20180212235225) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(version: 20180206184453) do
     t.datetime "updated_at"
   end
 
+  create_table "cta_proxes", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.integer  "cta_station_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "cta_searches", force: :cascade do |t|
     t.integer  "search_id"
     t.integer  "cta_station_id"
@@ -91,6 +98,7 @@ ActiveRecord::Schema.define(version: 20180206184453) do
     t.integer  "stop_id"
     t.float    "lat",        default: 0.0
     t.float    "lng",        default: 0.0
+    t.index ["lat", "lng"], name: "index_cta_stations_on_lat_and_lng"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -163,6 +171,9 @@ ActiveRecord::Schema.define(version: 20180206184453) do
     t.datetime "updated_at"
     t.float    "lat",              default: 0.0
     t.float    "lng",              default: 0.0
+    t.datetime "modtime"
+    t.string   "status"
+    t.index ["lat", "lng"], name: "index_listings_on_lat_and_lng"
   end
 
   create_table "listings_searches", force: :cascade do |t|
@@ -199,6 +210,7 @@ ActiveRecord::Schema.define(version: 20180206184453) do
     t.string   "name"
     t.float    "lat",        default: 0.0
     t.float    "lng",        default: 0.0
+    t.index ["lat", "lng"], name: "index_metra_stations_on_lat_and_lng"
   end
 
   create_table "neighborhoods", force: :cascade do |t|
